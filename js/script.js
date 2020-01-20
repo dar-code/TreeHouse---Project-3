@@ -52,7 +52,7 @@ const appendPageLinks = (list) => {
       a.addEventListener('click', (e) => {
          let pageToShow = parseInt(e.target.textContent);
          const pageLinks = document.querySelectorAll('a');
-         for (let i = 0; i < pageLinks.length) {
+         for (let i = 0; i < pageLinks.length; i++) {
             pageLinks[i].classList.remove('active');
          }
          e.target.className = 'active';
