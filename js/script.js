@@ -1,21 +1,20 @@
 // Variables
 
-const fullList = document.querySelector('.student-item');
-const listItems = itemParent.children;
-const page = document.querySelector('.page');
+const fullList = document.getElementsByClassName('.student-item');
+const page = document.getElementsByClassName('.page');
 const perPage = 10;
 const currentPage = 1;
 
 // ShowPage Function
 
-const showPage = (fullList, page) => {
+const showPage = (list, page) => {
    const startIndex = (page * perPage) - perPage;
-   const endIndex = page * perPage;
-    for (let i = 0; i < fullList.length; i++) {
+   const endIndex = (page * perPage) - 1;
+    for (let i = 0; i < list.length; i++) {
       if (i >= startIndex && i <= endIndex) {
-         fullList[i].style.display = '';
+         list[i].style.display = '';
       } else {
-         fullList[i].style.display = 'none'; 
+         list[i].style.display = 'none'; 
       }
    };
 
@@ -44,9 +43,9 @@ const appendPageLinks = (fullList) => {
 //Created 'a' and 'li' elements
 
    for (let i = 0; i < pageCount; i++) {
-      const ul = div.getElementsByTagName('ul')[0];
-      const a = createElement('a');
-      const li = createElement('li');
+      const ul = newDiv.getElementsByTagName('ul')[0];
+      const a = document.createElement('a');
+      const li = document.createElement('li');
 
       li.appendChild(a);
       ul.appendChild(li);
@@ -67,7 +66,7 @@ const appendPageLinks = (fullList) => {
                pageLinks[j].classList.remove('active');
                currentPage = e.target.textContent;
                e.target.className = 'active';
-            )}
+            })
 };
-
+}
 showPage(fullList, 1);
