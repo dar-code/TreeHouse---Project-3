@@ -8,28 +8,27 @@ const currentPage = 1;
 
 // ShowPage Function
 
-const showPage = (list, page) => {
+const showPage = (fullList, page) => {
    const startIndex = (page * perPage) - perPage;
    const endIndex = page * perPage;
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < fullList.length; i++) {
       if (i >= startIndex && i <= endIndex) {
-         list[i].style.display = '';
+         fullList[i].style.display = '';
       } else {
-         list[i].style.display = 'none'; 
+         fullList[i].style.display = 'none'; 
       }
    };
 
 };
 
 
-
 //Creating the pagination links dynamically
 
-const appendPageLinks = (list) => {
+const appendPageLinks = (fullList) => {
    
 //Variable pagesCount will included the rounded number of needed pages. I've used Math.ceil to round the number up to the next highest whole number (if we have 54 students, we should have 6 pages instead of 5). 
 
-   const pageCount = Math.ceil(list.length / perPage);
+   const pageCount = Math.ceil(fullList.length / perPage);
    
 //Created a div element within a variable called 'div', stored it in the .page, and added a class 'pagination' to it.
 
@@ -63,11 +62,12 @@ const appendPageLinks = (list) => {
 
 //Created the click event listener
 
-      for (let i = 0; i < pageLinks.length; i++) {
-            pageLinks[i].addEventListener('click', (e) =>{
-               pageLinks[i].classList.remove('active');
+      for (let j = 0; j < pageLinks.length; j++) {
+            pageLinks[j].addEventListener('click', (e) =>{
+               pageLinks[j].classList.remove('active');
                currentPage = e.target.textContent;
                e.target.className = 'active';
-               showPage(fullList, 1);
             )}
 };
+
+showPage(fullList, 1);
