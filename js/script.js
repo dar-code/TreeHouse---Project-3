@@ -68,5 +68,9 @@ const appendPageLinks = (fullList) => {
                e.target.className = 'active';
             });
          };
-showPage(fullList, 1);
+
       };
+
+      showPage(fullList, 1);
+      appendPageLinks(fullList);
+
