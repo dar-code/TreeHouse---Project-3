@@ -57,7 +57,7 @@ const appendPageLinks = (fullList) => {
          a.classList = 'active';
       }
       a.textContent = i + 1;
-   }
+   };
 
 //Created the click event listener
 
@@ -66,7 +66,9 @@ const appendPageLinks = (fullList) => {
                pageLinks[j].classList.remove('active');
                currentPage = e.target.textContent;
                e.target.className = 'active';
-            })
-};
-}
+            });
+         };
 showPage(fullList, 1);
+      };
+      appendPageLinks(fullList);
+      
