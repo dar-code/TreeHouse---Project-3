@@ -70,5 +70,3 @@ const appendPageLinks = (fullList) => {
          };
 showPage(fullList, 1);
       };
-      appendPageLinks(fullList);
-      
