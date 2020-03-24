@@ -1,9 +1,9 @@
 // Variables
 
-const fullList = document.getElementsByClassName('.student-item');
-const page = document.getElementsByClassName('.page');
+const fullList = document.getElementsByClassName('student-item');
+const page = document.querySelector('.page');
 const perPage = 10;
-const currentPage = 1;
+let currentPage = 1;
 
 // ShowPage Function
 
@@ -43,31 +43,36 @@ const appendPageLinks = (fullList) => {
 //Created 'a' and 'li' elements
 
    for (let i = 0; i < pageCount; i++) {
-      const ul = newDiv.getElementsByTagName('ul')[0];
+      //const ul = newDiv.getElementsByTagName('ul')[0];
       const a = document.createElement('a');
       const li = document.createElement('li');
 
       li.appendChild(a);
       ul.appendChild(li);
 
-      const pageLinks = document.querySelectorAll('a');
+      let pageLinks = document.getElementsByTagName('a');
 
       a.setAttribute = ("href", "#");
+      
       if (i===0){
-         a.classList = 'active';
-      }
+   
+      a.className = 'active';
+      
+       }
+
       a.textContent = i + 1;
-   };
 
 //Created the click event listener
+      newDiv.addEventListener('click', (event) => {
+         
+         showPage(list, parseInt(a.textContent));
 
-      for (let j = 0; j < pageLinks.length; j++) {
-            pageLinks[j].addEventListener('click', (e) =>{
-               pageLinks[j].classList.remove('active');
-               currentPage = e.target.textContent;
-               e.target.className = 'active';
-            });
-         };
+         for (j = 0; j < pageLinks.length; j++){
+            pageLinks[j].className = '';
+         }
+         event.target.className = 'active';
+         });     
+      };
 
       };
 
