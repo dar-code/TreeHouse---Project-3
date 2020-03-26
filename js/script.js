@@ -65,7 +65,7 @@ const appendPageLinks = (fullList) => {
 //Created the click event listener
       newDiv.addEventListener('click', (event) => {
          
-         showPage(list, parseInt(a.textContent));
+         showPage(fullList, parseInt(event.target.textContent));
 
          for (j = 0; j < pageLinks.length; j++){
             pageLinks[j].className = '';
