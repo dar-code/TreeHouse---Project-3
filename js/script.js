@@ -1,81 +1,56 @@
-// Variables
+//Selected the 'name' ID within the HTML file and added the focus method to it.
 
-const fullList = document.getElementsByClassName('student-item');
-const page = document.querySelector('.page');
-const perPage = 10;
-let currentPage = 1;
+const nameFocus = document.getElementById('name').focus();
 
-// ShowPage Function
+const titleList = document.getElementById('title');
 
-const showPage = (list, page) => {
-   const startIndex = (page * perPage) - perPage;
-   const endIndex = (page * perPage) - 1;
-    for (let i = 0; i < list.length; i++) {
-      if (i >= startIndex && i <= endIndex) {
-         list[i].style.display = '';
-      } else {
-         list[i].style.display = 'none'; 
-      }
-   };
+//Selected the newly input element with id="other-role" element nad putting it in a variable called "otherElement"
 
-};
+const otherRole = document.getElementById('other-title');
+
+//Hid the "other-role" text box
+
+otherRole.style.display = 'none'
+
+//Added an event listener which will diplay the "other-role" textbox only if the "titleList" variable value is "other"
+
+titleList.addEventListener('change', (e)=>{
+    if(e.target.value === "other"){
+        otherRole.style.display = ''
+    } else {
+        otherRole.style.display = 'none'
+        }
+});
+
+//Hide the “Select Theme” `option` element in the “Design” menu.
+
+const selectDesign = document.getElementById('design').options[0];
+selectDesign.style.display = 'none';
+
+// Update the “Color” field to read “Please select a T-shirt theme”.
+
+const selectColor = document.getElementById('color');
+
+const optionPlease = document.createElement('option');
+
+optionPlease.value = "please";
+optionPlease.text = "Please select a T-shirt theme";
+
+selectColor.add(optionPlease, selectColor.options[0]);
+optionPlease.innerHTML = 'Please select a T-shirt theme';
+
+// Hide the colors in the “Color” drop down menu.
+
+// NOTE: Be sure to check out the helpful links in the second section of this Study Guide if you’re unsure of how to accomplish these steps.
 
 
-//Creating the pagination links dynamically
-
-const appendPageLinks = (fullList) => {
-   
-//Variable pagesCount will included the rounded number of needed pages. I've used Math.ceil to round the number up to the next highest whole number (if we have 54 students, we should have 6 pages instead of 5). 
-
-   const pageCount = Math.ceil(fullList.length / perPage);
-   
-//Created a div element within a variable called 'div', stored it in the .page, and added a class 'pagination' to it.
-
-   const newDiv = document.createElement('div');
-   page.appendChild(newDiv);
-   newDiv.className = 'pagination';
-
-//Appended ul to the 'pagination' class div.
-
-   const ul = document.createElement('ul');
-   newDiv.appendChild(ul);
-   
-//Created 'a' and 'li' elements
-
-   for (let i = 0; i < pageCount; i++) {
-      //const ul = newDiv.getElementsByTagName('ul')[0];
-      const a = document.createElement('a');
-      const li = document.createElement('li');
-
-      li.appendChild(a);
-      ul.appendChild(li);
-
-      let pageLinks = document.getElementsByTagName('a');
-
-      a.setAttribute = ("href", "#");
-      
-      if (i===0){
-   
-      a.className = 'active';
-      
-       }
-
-      a.textContent = i + 1;
-
-//Created the click event listener
-      newDiv.addEventListener('click', (event) => {
-         
-         showPage(fullList, parseInt(event.target.textContent));
-
-         for (j = 0; j < pageLinks.length; j++){
-            pageLinks[j].className = '';
-         }
-         event.target.className = 'active';
-         });     
-      };
-
-      };
-
-      showPage(fullList, 1);
-      appendPageLinks(fullList);
-
+// Then, when one of the two themes is selected, only the appropriate colors should show in the
+// “Color” drop down menu, and the “Color” field should update to the first available color. You’ll
+// use a `change` event listener on the “Design” menu `select` element to listen for changes. And
+// inside the event listener, you’ll use a conditional to determine what to hide, show and update.
+// ● If “js puns” is selected, hide the three “heart js” option elements in the “Color” drop
+// down menu, show the three “js puns” option elements, and update the “Color” field to
+// the first available color.
+// ● If “heart js” is selected, hide the three “js puns” option elements in the “Color” drop
+// down menu, show the three “heart js” option elements, and update the “Color” field to
+// the first available color.
