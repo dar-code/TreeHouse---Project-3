@@ -28,7 +28,7 @@ const selectDesigns = document.getElementById('design')
 const selectDesign = document.getElementById('design').options[0];
 selectDesign.style.display = 'none';
 
-// Updated the “Color” field to read “Please select a T-shirt theme”.
+//Updated the “Color” field to read “Please select a T-shirt theme”.
 
 const selectColor = document.getElementById('color');
 
@@ -44,8 +44,8 @@ const colorOptions = selectColor.children;
 
 //Hid all fo the Color options by looping through them and displaying "none"
 
-for (let i = 1; i < colorOptions.length; i++){
-    colorOptions[i].style.display = 'none';
+for (let i = 0; i < selectColor.length; i++){
+    selectColor[i].style.display = 'none';
   };
 
 //Added the change event listener that will display indexes 1, 2, and 3 for "js puns" and 4, 5, and 6 for "heart js". First color option will be displayed depending on the design theme selected.
@@ -71,8 +71,7 @@ selectDesigns.addEventListener('change', (e)=>{
         colorOptions[3].style.display = 'none';
         colorOptions[4].style.display = '';
         colorOptions[5].style.display = '';
-        colorOptions[6].style.display = '';
-    }
+        colorOptions[6].style.display = '';}
 });
 
 //Created the new element and appended it to the fieldset with the "activities" class, which is stored in the "regosterNow" variable
@@ -153,6 +152,12 @@ selectMethod[0].style.display = 'none';
 const creditCard = document.getElementById('credit-card');
 const paypal = document.getElementById('paypal');
 const bitcoin = document.getElementById('bitcoin');
+
+//Selected the credit car section and hid the "Paypal" and "Bitcoin" section
+
+selectMethod[1].selected = 'selected'
+paypal.style.display = 'none';
+bitcoin.style.display = 'none';
 
 //Created a "change" event listener which displays only the selectMethod drop down menu selection
 
