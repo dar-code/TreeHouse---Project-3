@@ -1,2 +1,2 @@
-# TreeHouse---Project-2
+# TreeHouse---Project-3
 Pagination project
