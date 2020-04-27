@@ -48,12 +48,18 @@ for (let i = 0; i < selectColor.length; i++){
     selectColor[i].style.display = 'none';
   };
 
+//Hiding the color section
+
+  const colorSection = document.getElementById('colors-js-puns');
+  colorSection.style.display = "none";
+
 //Added the change event listener that will display indexes 1, 2, and 3 for "js puns" and 4, 5, and 6 for "heart js". First color option will be displayed depending on the design theme selected.
 
 selectDesigns.addEventListener('change', (e)=>{
     if(e.target.value === "js puns"){
 
         colorOptions[1].selected = true;
+        colorSection.style.display = '';
         colorOptions[0].style.display = 'none';
         colorOptions[1].style.display = '';
         colorOptions[2].style.display = '';
@@ -65,6 +71,7 @@ selectDesigns.addEventListener('change', (e)=>{
     } else if (e.target.value === "heart js") {
 
         colorOptions[4].selected = true;
+        colorSection.style.display = '';
         colorOptions[0].style.display = 'none';
         colorOptions[1].style.display = 'none';
         colorOptions[2].style.display = 'none';
@@ -72,6 +79,7 @@ selectDesigns.addEventListener('change', (e)=>{
         colorOptions[4].style.display = '';
         colorOptions[5].style.display = '';
         colorOptions[6].style.display = '';}
+    
 });
 
 //Created the new element and appended it to the fieldset with the "activities" class, which is stored in the "regosterNow" variable
@@ -228,7 +236,7 @@ function zipValidation(zip) {
 
 function cvvValidation(cvv) {
 
-    return /^[0-9]{3,4}$/.test(cvv);
+    return /^[0-9]{3}$/.test(cvv);
 }
 
 //Used the closure function method to validate the NAME. I was dissapointed that I could not find a way to validate all 5 input fields using only one closure function.
